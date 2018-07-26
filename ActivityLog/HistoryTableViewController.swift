@@ -14,8 +14,9 @@ import CoreData
 import SCLAlertView
 import MessageUI
 import Parse
+import DZNEmptyDataSet
 
-class HistoryTableViewController: UITableViewController {
+class HistoryTableViewController: UITableViewController,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
 
     var managedObjectContext: NSManagedObjectContext? = nil
     var logList:[Log] = []
@@ -23,10 +24,23 @@ class HistoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsSelection = false
+        
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        self.tableView.tableFooterView = UIView()
 
     }
     override func viewWillAppear(_ animated: Bool) {
         reloadData()
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let labelText = "No Activity Log Yet"
+        let strokeTextAttributes = [
+            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 18)
+            ] as [NSAttributedStringKey : Any]
+        
+        return NSAttributedString(string: labelText, attributes: strokeTextAttributes)
     }
     
     func reloadData(){
@@ -41,7 +55,7 @@ class HistoryTableViewController: UITableViewController {
         query.limit = 1000
         query.fromLocalDatastore()
         query.addDescendingOrder("createdAt")
-        //query.whereKey("user", equalTo:PFUser.current()?.username)
+        //query.whereKey("user", equalTo:"ddd")
         
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
@@ -50,6 +64,7 @@ class HistoryTableViewController: UITableViewController {
                 print ("number is", number)
 
                 for i in 0 ..< number {
+                    
                     let curLog = objects?[i]
                     let activity = curLog?["activity"] as! String
                     let lon = curLog?["lon"] as! CLLocationDegrees

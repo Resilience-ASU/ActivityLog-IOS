@@ -8,6 +8,8 @@
 
 import UIKit
 import Eureka
+import Parse
+
 class dropIDViewController: FormViewController {
     let delegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
@@ -25,6 +27,10 @@ class dropIDViewController: FormViewController {
             print("Changed Device")
             if delegate.connectedDrop != nil {
                 delegate.centralManager.cancelPeripheralConnection(delegate.connectedDrop)
+            }
+            if (PFUser.current()?.username != nil) {
+                PFUser.current()?["dropid"] = row?.value
+                PFUser.current()?.saveEventually()
             }
         }
         if row?.value == nil{

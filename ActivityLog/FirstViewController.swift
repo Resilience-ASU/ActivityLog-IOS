@@ -430,24 +430,40 @@ class FirstViewController: FormViewController, CLLocationManagerDelegate {
             if (minutes == delegate.nextLogTime) {
                 let track = PFObject(className:"Tracks")
                 track["BTstatus"] = delegate.state
-                track["user"] = String((PFUser.current()?.username)!.prefix(10))
+                if (PFUser.current()?.username != nil) {
+                    track["user"] = String((PFUser.current()?.username)!.prefix(10))
+                }
                 track["lat"] = curLoc.coordinate.latitude
                 track["lon"] = curLoc.coordinate.longitude
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy/MM/dd HH:mm"
                 track["loctime"] = formatter.string(from: Date())
-                track.saveInBackground()
+                //track.saveInBackground()
+                track.saveEventually()
+                track.pinInBackground()
                 delegate.nextLogTime = (delegate.nextLogTime + 10) % 60
                 if delegate.state.hasPrefix("Connected"){
-                    track["temptime"] = formatter.string(from: delegate.time)
+                    print("Time Differences:",Date().timeIntervalSince(delegate.time))
+                    if Date().timeIntervalSince(delegate.time) <= 5 {
+                        track["temptime"] = formatter.string(from: delegate.time)
+                    }
+                    else{
+                         track["temptime"] = formatter.string(from: delegate.time)
+                    }
                     track["temp"] = delegate.temp
                     track["humidity"] = delegate.humidity
                     track["hsi"] = delegate.hsi
-                    track.saveInBackground()
+                    //track.saveInBackground()
+                    track.saveEventually()
+                    track.pinInBackground()
                 }
                 else{
-                    delegate.centralManager.connect(delegate.connectedDrop, options: nil)
-                    //scanForPeripherals(withServices: nil)
+                    if delegate.connectedDrop != nil{
+                        delegate.centralManager.connect(delegate.connectedDrop, options: nil)
+                    }
+                    else{
+                        delegate.centralManager.scanForPeripherals(withServices: nil)
+                    }
                     delegate.state = "Disconnected and reconnecting"
                 }
             }
@@ -535,20 +551,26 @@ extension FirstViewController: CBPeripheralDelegate {
                 let value = data?.withUnsafeBytes { (ptr: UnsafePointer<Int16>) -> Int16 in
                     return ptr.pointee
                 }
-                delegate.temp = Double(value!)/100*1.8+32
-                delegate.time = Date()
+                if value != nil{
+                    delegate.temp = Double(value!)/100*1.8+32
+                    delegate.time = Date()
+                }
             case humidityUUID:
                 let data = characteristic.value?.advanced(by: 1)
                 let value = data?.withUnsafeBytes { (ptr: UnsafePointer<Int16>) -> Int16 in
                     return ptr.pointee
                 }
-                delegate.humidity = Double(value!)/100
+                if value != nil{
+                    delegate.humidity = Double(value!)/100
+                }
             case hsiUUID:
                 let data = characteristic.value?.advanced(by: 1)
                 let value = data?.withUnsafeBytes { (ptr: UnsafePointer<Int16>) -> Int16 in
                     return ptr.pointee
                 }
-                delegate.hsi = Double(value!)/100*1.8+32
+                if value != nil{
+                    delegate.hsi = Double(value!)/100*1.8+32
+                }
             default:
                 print("Unhandled Characteristic UUID: \(characteristic.uuid)")
         }
@@ -558,7 +580,9 @@ extension FirstViewController: CBPeripheralDelegate {
                 let minutes = calendar.component(.minute, from: curLoc.timestamp)
                 if (minutes == delegate.nextLogTime) {
                     let track = PFObject(className:"Tracks")
-                    track["user"] = String((PFUser.current()?.username)!.prefix(10))
+                    if (PFUser.current()?.username != nil) {
+                        track["user"] = String((PFUser.current()?.username)!.prefix(10))
+                    }
                     track["lat"] = curLoc.coordinate.latitude
                     track["lon"] = curLoc.coordinate.longitude
                     let formatter = DateFormatter()
@@ -569,7 +593,9 @@ extension FirstViewController: CBPeripheralDelegate {
                     track["humidity"] = delegate.humidity
                     track["hsi"] = delegate.hsi
                     track["BTstatus"] = delegate.state
-                    track.saveInBackground()
+                    //track.saveInBackground()
+                    track.saveEventually()
+                    track.pinInBackground()
                     delegate.nextLogTime = (delegate.nextLogTime + 10) % 60
                     first = false
                 }

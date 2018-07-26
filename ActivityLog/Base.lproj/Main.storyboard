@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="1488.8" y="-321.58920539730138"/>
         </scene>
-        <!--History-->
+        <!--Activity History-->
         <scene sceneID="xC0-xX-I3P">
             <objects>
                 <tableViewController id="b86-oS-z3I" customClass="HistoryTableViewController" customModule="ActivityLog" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,7 +81,7 @@
                             <outlet property="delegate" destination="b86-oS-z3I" id="ZEz-oc-Iha"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="History" id="PVM-B4-IBK">
+                    <navigationItem key="navigationItem" title="Activity History" id="PVM-B4-IBK">
                         <barButtonItem key="rightBarButtonItem" image="map" id="mdK-hE-CxM">
                             <color key="tintColor" red="0.63137254899999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -132,7 +132,7 @@
                         <viewLayoutGuide key="safeArea" id="P61-LD-f04"/>
                     </view>
                     <navigationItem key="navigationItem" title="Activity Space" id="VfK-fB-YZG">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AVg-25-nYg">
+                        <barButtonItem key="leftBarButtonItem" image="cancel20" id="AVg-25-nYg">
                             <color key="tintColor" red="0.63137254899999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelBTN:" destination="kBS-4k-aaH" id="f5l-9E-9h4"/>
@@ -187,11 +187,11 @@
             </objects>
             <point key="canvasLocation" x="748.79999999999995" y="-320.23988005997006"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--History-->
         <scene sceneID="wr9-Ps-265">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nl6-pK-IXa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="hrO-ip-jf5">
+                    <tabBarItem key="tabBarItem" title="History" image="history" id="hrO-ip-jf5">
                         <color key="badgeColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -341,6 +341,12 @@
                         <viewLayoutGuide key="safeArea" id="gkC-PU-1np"/>
                     </view>
                     <navigationItem key="navigationItem" title="Heat" id="pJF-8H-uUh">
+                        <barButtonItem key="leftBarButtonItem" image="history" id="5CW-Bo-wEH">
+                            <color key="tintColor" red="0.63137254899999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="m5I-0j-2kw" kind="show" id="YTw-gF-LdV"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem id="rwe-gC-pAy"/>
                             <barButtonItem image="hash" id="r0R-Rf-qOc">
@@ -361,6 +367,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXt-hz-Mba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1687.2" y="1786.0569715142431"/>
+        </scene>
+        <!--Temp Map View Controller-->
+        <scene sceneID="syW-9K-jbl">
+            <objects>
+                <viewController id="Mm7-ee-bax" customClass="TempMapViewController" customModule="ActivityLog" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1rs-WD-HXP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nOe-Xp-8Fa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.63137254899999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="nOe-Xp-8Fa" firstAttribute="leading" secondItem="o6F-z5-8VR" secondAttribute="leading" id="PzR-Yu-LEi"/>
+                            <constraint firstItem="nOe-Xp-8Fa" firstAttribute="top" secondItem="o6F-z5-8VR" secondAttribute="top" id="SKN-Bf-4sY"/>
+                            <constraint firstItem="o6F-z5-8VR" firstAttribute="trailing" secondItem="nOe-Xp-8Fa" secondAttribute="trailing" id="fmK-hj-NmN"/>
+                            <constraint firstItem="o6F-z5-8VR" firstAttribute="bottom" secondItem="nOe-Xp-8Fa" secondAttribute="bottom" id="hZP-1C-HPa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o6F-z5-8VR"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="nOe-Xp-8Fa" id="zyf-W4-Qa4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="as0-Wa-vrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3350" y="2525"/>
+        </scene>
+        <!--Heat History-->
+        <scene sceneID="sV3-wU-Vu1">
+            <objects>
+                <tableViewController id="De7-JQ-Pbf" customClass="TempHistoryTableViewController" customModule="ActivityLog" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7BA-Al-kK7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xIc-Vt-Emz">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xIc-Vt-Emz" id="Ztd-5p-jLG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="De7-JQ-Pbf" id="S9c-RK-bNA"/>
+                            <outlet property="delegate" destination="De7-JQ-Pbf" id="war-sb-km4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Heat History" id="D98-vQ-eNN">
+                        <barButtonItem key="leftBarButtonItem" image="cancel20" id="y0n-2A-4Bc">
+                            <color key="tintColor" red="0.63137254899999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelBTN:" destination="De7-JQ-Pbf" id="rd9-dZ-3Zq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="map" id="UcN-V6-wLx">
+                            <color key="tintColor" red="0.63137254899999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="Mm7-ee-bax" kind="show" id="Acu-DW-ue8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdj-9I-7Kv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2526" y="2525"/>
         </scene>
         <!--Survey-->
         <scene sceneID="239-gs-lep">
@@ -416,10 +494,30 @@
             </objects>
             <point key="canvasLocation" x="2527" y="1786"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3Fn-bw-Iit">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m5I-0j-2kw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K7h-k6-MaZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="De7-JQ-Pbf" kind="relationship" relationship="rootViewController" id="aKQ-VL-kew"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5f0-kt-MUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1687" y="2525"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="cancel20" width="20" height="20"/>
         <image name="checkin" width="25" height="25"/>
         <image name="hash" width="20" height="20"/>
+        <image name="history" width="25" height="25"/>
         <image name="map" width="25" height="25"/>
         <image name="pass_card_25" width="25" height="25"/>
         <image name="survey" width="25" height="25"/>

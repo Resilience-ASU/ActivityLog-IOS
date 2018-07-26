@@ -26,3 +26,20 @@ class Log: NSObject {
     }
     
 }
+
+
+class Track: NSObject {
+    var time:String!
+    var temp: Double!
+    var hsi: Double!
+    var humidity: Double!
+    var lat:CLLocationDegrees!
+    var lon:CLLocationDegrees!
+    init(temp:Double, time:String, lat:CLLocationDegrees, lon:CLLocationDegrees){
+        self.temp = temp
+        self.time = time
+        self.lon = lon
+        self.lat = lat
+    }
+}
+

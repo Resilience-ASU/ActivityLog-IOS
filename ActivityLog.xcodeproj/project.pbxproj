@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5C04730A2107ED2200FB29B6 /* dropIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0473092107ED2200FB29B6 /* dropIDViewController.swift */; };
-		5C04730C2107EF3B00FB29B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C04730B2107EF3B00FB29B6 /* Assets.xcassets */; };
+		5C04730E2109840F00FB29B6 /* TempMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C04730D2109840F00FB29B6 /* TempMapViewController.swift */; };
+		5C04731221098FD300FB29B6 /* TempHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C04731121098FD300FB29B6 /* TempHistoryTableViewController.swift */; };
+		5C047314210A382B00FB29B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C047313210A382B00FB29B6 /* Assets.xcassets */; };
 		5C18267220C387A500EC92A8 /* MyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C18267120C387A500EC92A8 /* MyMapViewController.swift */; };
 		5C18267420E6A15100EC92A8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C18267320E6A15100EC92A8 /* Log.swift */; };
 		5C18267620E6AC3100EC92A8 /* SurveyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C18267520E6AC3100EC92A8 /* SurveyWebViewController.swift */; };
@@ -46,7 +48,9 @@
 		0F494862AC221BAD0AA131AF /* Pods_ActivityLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActivityLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A6CAAF3AD144253345AA48 /* Pods-ActivityLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityLog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityLog/Pods-ActivityLog.debug.xcconfig"; sourceTree = "<group>"; };
 		5C0473092107ED2200FB29B6 /* dropIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropIDViewController.swift; sourceTree = "<group>"; };
-		5C04730B2107EF3B00FB29B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C04730D2109840F00FB29B6 /* TempMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempMapViewController.swift; sourceTree = "<group>"; };
+		5C04731121098FD300FB29B6 /* TempHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempHistoryTableViewController.swift; sourceTree = "<group>"; };
+		5C047313210A382B00FB29B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C18267120C387A500EC92A8 /* MyMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMapViewController.swift; sourceTree = "<group>"; };
 		5C18267320E6A15100EC92A8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5C18267520E6AC3100EC92A8 /* SurveyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyWebViewController.swift; sourceTree = "<group>"; };
@@ -126,14 +130,16 @@
 				5C2425DC20AA02B600EE8D0A /* FirstViewController.swift */,
 				5C18267520E6AC3100EC92A8 /* SurveyWebViewController.swift */,
 				5C24260F20AB932800EE8D0A /* HistoryTableViewController.swift */,
+				5C18267120C387A500EC92A8 /* MyMapViewController.swift */,
 				5C3E400A2104F49600AB91E5 /* TempViewController.swift */,
 				5C0473092107ED2200FB29B6 /* dropIDViewController.swift */,
-				5C18267320E6A15100EC92A8 /* Log.swift */,
-				5C18267120C387A500EC92A8 /* MyMapViewController.swift */,
+				5C04731121098FD300FB29B6 /* TempHistoryTableViewController.swift */,
+				5C04730D2109840F00FB29B6 /* TempMapViewController.swift */,
 				5C2425E020AA02B600EE8D0A /* Main.storyboard */,
 				5C2425E520AA02B600EE8D0A /* LaunchScreen.storyboard */,
 				5C2425E820AA02B600EE8D0A /* Info.plist */,
-				5C04730B2107EF3B00FB29B6 /* Assets.xcassets */,
+				5C18267320E6A15100EC92A8 /* Log.swift */,
+				5C047313210A382B00FB29B6 /* Assets.xcassets */,
 			);
 			path = ActivityLog;
 			sourceTree = "<group>";
@@ -289,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C2425E720AA02B600EE8D0A /* LaunchScreen.storyboard in Resources */,
-				5C04730C2107EF3B00FB29B6 /* Assets.xcassets in Resources */,
+				5C047314210A382B00FB29B6 /* Assets.xcassets in Resources */,
 				5C2425E220AA02B600EE8D0A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,7 +390,9 @@
 				5C18267420E6A15100EC92A8 /* Log.swift in Sources */,
 				5C24260E20AB8F5200EE8D0A /* CustomCells.swift in Sources */,
 				5C2425DD20AA02B600EE8D0A /* FirstViewController.swift in Sources */,
+				5C04731221098FD300FB29B6 /* TempHistoryTableViewController.swift in Sources */,
 				5C18267220C387A500EC92A8 /* MyMapViewController.swift in Sources */,
+				5C04730E2109840F00FB29B6 /* TempMapViewController.swift in Sources */,
 				5C04730A2107ED2200FB29B6 /* dropIDViewController.swift in Sources */,
 				5C24261020AB932800EE8D0A /* HistoryTableViewController.swift in Sources */,
 			);
