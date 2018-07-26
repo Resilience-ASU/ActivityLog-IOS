@@ -1,0 +1,82 @@
+PODS:
+  - Bolts/Tasks (1.9.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - DZNEmptyDataSet (1.8.1)
+  - Eureka (4.2.0)
+  - EZLoadingActivity (1.01)
+  - GaugeKit (0.4.5)
+  - GDGauge (1.1.0)
+  - MKRingProgressView (2.0.1)
+  - NVActivityIndicatorView (4.3.0):
+    - NVActivityIndicatorView/Presenter (= 4.3.0)
+  - NVActivityIndicatorView/Presenter (4.3.0)
+  - Parse (1.17.1):
+    - Parse/Core (= 1.17.1)
+  - Parse/Core (1.17.1):
+    - Bolts/Tasks (~> 1.9)
+  - SCLAlertView (0.8)
+  - StatusProvider (1.2.8)
+  - TimelineTableViewCell (1.2)
+
+DEPENDENCIES:
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - DZNEmptyDataSet
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`)
+  - EZLoadingActivity
+  - GaugeKit
+  - GDGauge
+  - MKRingProgressView
+  - NVActivityIndicatorView
+  - Parse
+  - SCLAlertView
+  - StatusProvider
+  - TimelineTableViewCell
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Bolts
+    - DZNEmptyDataSet
+    - EZLoadingActivity
+    - GaugeKit
+    - GDGauge
+    - MKRingProgressView
+    - NVActivityIndicatorView
+    - Parse
+    - SCLAlertView
+    - StatusProvider
+    - TimelineTableViewCell
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+  Eureka:
+    :git: https://github.com/xmartlabs/Eureka.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
+    :git: https://github.com/ViccAlexander/Chameleon.git
+  Eureka:
+    :commit: ec14ae696e82d4e4bbc82c767336da0e37a39ce1
+    :git: https://github.com/xmartlabs/Eureka.git
+
+SPEC CHECKSUMS:
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
+  EZLoadingActivity: edd7e387e5197b116ce2cccb3fd747ababc2a510
+  GaugeKit: 7872069a8aed2d26b17fca110fe1ab59722f8a33
+  GDGauge: 54ac73c36e158c4d702e03892c50ef2905ddfe73
+  MKRingProgressView: a2adeddfff0ea03f0fb7f8b108f3f77176db3bb5
+  NVActivityIndicatorView: 963f62bf9f993fcf23218e55958e5b1761b9504c
+  Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  StatusProvider: 655bcc1b6cc240f296f3723687dcf560a99ea298
+  TimelineTableViewCell: 71a4bc787bfeb5a85083171d18b113a5f5db2be8
+
+PODFILE CHECKSUM: aa8fd96e0d275609677f3f604e61ac40076eb136
+
+COCOAPODS: 1.5.3
