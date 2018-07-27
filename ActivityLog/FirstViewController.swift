@@ -253,7 +253,6 @@ class FirstViewController: FormViewController, CLLocationManagerDelegate {
         log["BTstatus"] = delegate.state
         let row: TextAreaRow? = form.rowBy(tag: "notes")
         if row?.value != nil{
-            print(row?.value)
             log["notes"] = row?.value
         }
         
@@ -271,7 +270,6 @@ class FirstViewController: FormViewController, CLLocationManagerDelegate {
             for (key, value) in (self.form.values()) {
                 if (value != nil) && (key != "Outdoor"){
                     log["activity"] = "Outdoor - " + key
-                    print(key)
                 }
             }
             
@@ -301,7 +299,6 @@ class FirstViewController: FormViewController, CLLocationManagerDelegate {
             for (key, value) in (self.form.values()) {
                 if (value != nil) && (key != "Indoor"){
                     log["activity"] = "Indoor - " + key
-                    print(key)
                 }
             }
             
@@ -511,7 +508,12 @@ extension FirstViewController: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         delegate.state =  "Disconnected and reconnecting"
         //delegate.centralManager.scanForPeripherals(withServices: nil)
-        delegate.centralManager.connect(delegate.connectedDrop, options: nil)
+        if delegate.connectedDrop != nil{
+            delegate.centralManager.connect(delegate.connectedDrop, options: nil)
+        }
+        else{
+            delegate.centralManager.scanForPeripherals(withServices: nil)
+        }
     }
     
 }
@@ -520,7 +522,7 @@ extension FirstViewController: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else { return }
         for service in services {
-            print(service.uuid)
+            //print(service.uuid)
             peripheral.discoverCharacteristics(nil, for: service)
         }
         
@@ -529,7 +531,7 @@ extension FirstViewController: CBPeripheralDelegate {
         guard let characteristics = service.characteristics else { return }
         first = true
         for characteristic in characteristics {
-            print(characteristic)
+            //print(characteristic)
             switch characteristic.uuid {
             case tempUUID:
                 peripheral.setNotifyValue(true, for: characteristic)

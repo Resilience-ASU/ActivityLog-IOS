@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import Parse
+import CoreBluetooth
 
 class dropIDViewController: FormViewController {
     let delegate = UIApplication.shared.delegate as! AppDelegate
@@ -27,11 +28,10 @@ class dropIDViewController: FormViewController {
             print("Changed Device")
             if delegate.connectedDrop != nil {
                 delegate.centralManager.cancelPeripheralConnection(delegate.connectedDrop)
+                delegate.connectedDrop = nil
+                delegate.state = "Disconnected and reconnecting"
             }
-            if (PFUser.current()?.username != nil) {
-                PFUser.current()?["dropid"] = row?.value
-                PFUser.current()?.saveEventually()
-            }
+            
         }
         if row?.value == nil{
             print("Cleared")
@@ -40,6 +40,12 @@ class dropIDViewController: FormViewController {
         else{
             UserDefaults.standard.set(row?.value, forKey: "dropid")
         }
+        
+        if (PFUser.current()?.username != nil) {
+            PFUser.current()?["dropid"] = UserDefaults.standard.string(forKey: "dropid")
+            PFUser.current()?.saveEventually()
+        }
+        
     }
 
     /*
