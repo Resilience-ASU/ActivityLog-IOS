@@ -441,8 +441,8 @@ class FirstViewController: FormViewController, CLLocationManagerDelegate {
                 delegate.nextLogTime = (delegate.nextLogTime + 10) % 60
                 if delegate.state.hasPrefix("Connected"){
                     print("Time Differences:",Date().timeIntervalSince(delegate.time))
-                    if Date().timeIntervalSince(delegate.time) <= 5 {
-                        track["temptime"] = formatter.string(from: delegate.time)
+                    if Date().timeIntervalSince(delegate.time) <= 10 {
+                        track["temptime"] = formatter.string(from: Date())
                     }
                     else{
                          track["temptime"] = formatter.string(from: delegate.time)
