@@ -8,6 +8,9 @@ ActivityLog is a general mobile phone application that helps urban climate resea
 
 ActivityLog - HeatMappers has five main functionalities. First, it notifies users from 8am to 8pm at every two hours interval to remind about activity logging. Secondly, it periodically collects users’ locations at a certain pre-defined time interval. Thirdly, it can be paired with a portable Kestrel Drop device to inform users about current temperature, relative humidity and heat stress index. Fourthly, the mobile application contains a link to HeatMappers online survey from Qualtric platform. Lastly, all collected data (location, time, temperature, relative humidity, heat stress index, human activity) are synced with a cloud database that can help researchers monitor data collection progress in a real-time manner and reduce data cleaning efforts. 
 
+# App Store Downloading Link
+https://apps.apple.com/us/app/myactivitylog/id1388722187
+
 # Paper Citation
 Zhao, Q., Shah, D., Li, Z., Fischer, H., Luo, W., Solis, P., & Wentz, E. (2019). ActivityLog – HeatMappers: A Novel Research Data Collection Tool for Logging Human Activities, Locations and Environmental Data. 
 
